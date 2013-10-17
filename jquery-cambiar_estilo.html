@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>cambiar de estilo con estilo</title>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script>
+		$(document).on('ready',function(){
+		
+		$('select').change(function(){
+			var num=$("select option:selected" ).attr('value');				
+				console.log(num);
+
+				if (num==1) {
+					$('.apartado').attr('id','estilo1');
+					$('.apartado').text("OOOUUHH YEEAAHHHH");
+					console.log('uno');
+				};
+				if (num==2) {
+					$('.apartado').attr('id','estilo2');
+					$('.apartado').text("OOOUUHH YEEAAHHHH");
+					console.log('dos');
+				};
+				if (num==3) {
+					$('.apartado').attr('id','estilo3');
+					$('.apartado').text("OOOUUHH YEEAAHHHH");
+					console.log('tres');
+				};
+			
+
+			});	
+		
+		});
+	</script>
+	<style>
+	body,html{
+		background-color: blue;
+
+	}
+	#estilo1{
+		background: black;
+		color: white;
+		margin: 10px; 
+
+	}
+	#estilo2{
+		background: white;
+		color: black;
+		margin: 50px; 
+
+	}
+	#estilo3{
+		background: red;
+		color: yellow;
+		margin: 100px; 
+
+	}
+
+
+	</style>
+</head>
+<body>
+<h1 align="center">Cambiar de estilo con estilo</h1>
+	<select id='combo' name="combobox">
+  		<option value="0">Selecciona un estilo</option>
+  		<option value="1" >estilo uno</option>
+  		<option value="2" >estilo dos</option>
+  		<option value="3" >estilo tres</option>
+	</select>
+	<div id='div1' class=apartado align="center" >Apartado vacio</div>
+
+</body>
+</html>
