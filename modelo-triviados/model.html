@@ -1,0 +1,106 @@
+<script>
+function partida(){
+	this.tablero ="";
+	this.metodo1 = function metod1(arg1){
+		return arg1 + " "+this.prop2;
+	}
+}
+
+function tablero(){
+	//42 casillas
+	//casillaQuesito: 1,8,15,22,29,36  
+	var posCasillaQuesito=[1,8,15,22,29,36,43];
+	var posRojo=[11,21,29,37,47];
+	var posAmarillo=[5,18,28,36,44];
+	var posAzul=[4,14,22,30,40];
+	var posVerde=[2,12,25,35,43];
+	var posNaranja=[7,15,23,33,46];
+	var posRosa=[8,16,26,35,49];
+	var posNegro=[10,34];
+	var posMarron=[1,9,19,32,42];
+	var posGris=[3,6,13,17,20,24,27,31,38,41,45,48];
+
+
+	this.tablero = new Array(49);
+	this.iniTablero = function (){
+		var col=new Array(49);
+		for(var i=1;i<=49;i++)
+			col[i]= (new casilla(i,"p"));
+		for(i in posCasillaQuesito)
+			col[posCasillaQuesito[i]]=(new casilla(posCasillaQuesito[i],"Q"));
+		for(i in posRojo)
+			col[posRojo[i]].color="Rojo";
+		for(i in posAmarillo)
+			col[posAmarillo[i]].color="Amarillo";
+		for(i in posAzul)
+			col[posAzul[i]].color="Azul";
+		for(i in posVerde)
+			col[posVerde[i]].color="Verde";
+		for(i in posNaranja)
+			col[posNaranja[i]].color="Naranja";
+		
+		for(i in posRosa)
+			col[posRosa[i]].color="Rosa";
+		
+		for(i in posNegro){
+			col[posNegro[i]].color="Negro";
+			col[posNegro[i]].tipo="d";
+		}
+		for(i in posMarron)
+			col[posMarron[i]].color="Marron";
+		for(i in posGris){
+			col[posGris[i]].color="Gris";
+			col[posGris[i]].tipo="t";	
+			}		
+
+		return col;
+	};
+
+
+	this.tablero=this.iniTablero();
+
+	
+}
+function tirar(){
+
+	var randomdice=Math.round(Math.random()*5);
+	console.log(randomdice);
+}
+function casilla(numero,tipo){
+	this.numero=numero;
+	this.tipo=tipo; //Q,T,P
+	this.color=""; //rojo,verde,naranja
+}
+
+
+function jugador(){
+	this.nombre="";
+	this.ficha= new ficha();
+}
+
+function ficha(){
+	this.quesitos=new Array(new quesito("rojo",false),new quesito("verde",false), new quesito("naranja",false));
+}
+
+function quesito(color,conseguida){
+	this.color=color;
+	this.conseguida=conseguida;
+}
+
+var jug1 = new jugador();
+jug1.nombre="Pepito";
+
+var jug2 = new jugador();
+jug2.nombre="Juanito";
+
+var tablero=new tablero();
+
+
+function juego(partida){
+	this.partida=partida;
+
+}
+
+
+
+</script>
